@@ -213,11 +213,12 @@ jobs:
     strategy:
       matrix:
         platform:
-          - os_name: Linux-aarch64
-            os: ubuntu-20.04
-            target: aarch64-unknown-linux-gnu
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-aarch64-unknown-linux-gnu.tar.gz
+# could not find system library 'alsa' required by the 'alsa-sys' crate
+#           - os_name: Linux-aarch64
+#             os: ubuntu-20.04
+#             target: aarch64-unknown-linux-gnu
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-aarch64-unknown-linux-gnu.tar.gz
             
 # minimp3/minimp3.h(187): fatal error C1189: #error:  MINIMP3_ONLY_SIMD used, but SSE/NEON not enabled          
 #           - os_name: Windows-aarch64
@@ -260,7 +261,7 @@ jobs:
         if: contains(matrix.platform.name, 'musl')
         
       - name: Install libasound2-dev on Linux
-        run: sudo apt-get update --yes && sudo apt-get install --yes g++ pkg-config libx11-dev libasound2-dev libudev-dev
+        run: sudo apt-get update --yes && sudo apt-get install --yes g++ pkg-config libx11-dev libasound2-dev libudev-dev alsa-lib-devel.aarch64
         if: contains(matrix.platform.name, 'linux')
 
       - name: Install libunwind8-dev for Android
@@ -357,17 +358,19 @@ jobs:
     strategy:
       matrix:
         platform:
-          - os_name: Linux-arm-musleabi
-            os: ubuntu-20.04
-            target: arm-unknown-linux-musleabi
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-arm-unknown-linux-musleabi.tar.gz
-          
-          - os_name: Linux-arm-gnueabihf
-            os: ubuntu-20.04
-            target: arm-unknown-linux-gnueabihf
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-arm-unknown-linux-gnueabihf.tar.gz
+# could not find system library 'alsa' required by the 'alsa-sys' 
+#           - os_name: Linux-arm-musleabi
+#             os: ubuntu-20.04
+#             target: arm-unknown-linux-musleabi
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-arm-unknown-linux-musleabi.tar.gz
+
+# could not find system library 'alsa' required by the 'alsa-sys' 
+#           - os_name: Linux-arm-gnueabihf
+#             os: ubuntu-20.04
+#             target: arm-unknown-linux-gnueabihf
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-arm-unknown-linux-gnueabihf.tar.gz
 
 # [WTF?] 
 # Package alsa was not found in the pkg-config search path.\nPerhaps you should add the directory containing `alsa.pc'\nto the PKG_CONFIG_PATH environment variable\nNo package 'alsa' found
