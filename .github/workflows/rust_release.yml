@@ -243,11 +243,12 @@ jobs:
 #             name: ${{ github.event.repository.name }}-Apple-aarch64-apple-ios.tar.gz
 #             skip_tests: true
 
-          - os_name: aarch64-linux-android
-            os: ubuntu-22.04
-            target: aarch64-linux-android
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-aarch64-linux-android.tar.gz
+# Unable to locate package alsa-lib-devel.aarch64
+#           - os_name: aarch64-linux-android
+#             os: ubuntu-22.04
+#             target: aarch64-linux-android
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-aarch64-linux-android.tar.gz
         toolchain:
           - stable
 
@@ -380,11 +381,12 @@ jobs:
 #             bin: ${{ github.event.repository.name }}
 #             name: ${{ github.event.repository.name }}-armv7-unknown-linux-gnueabi.tar.gz
 
-          - os_name: Linux-armv7-musleabi
-            os: ubuntu-20.04
-            target: armv7-unknown-linux-musleabi
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-armv7-unknown-linux-musleabi.tar.gz
+# could not find system library 'alsa' required by the 'alsa-sys' crate
+#           - os_name: Linux-armv7-musleabi
+#             os: ubuntu-20.04
+#             target: armv7-unknown-linux-musleabi
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-armv7-unknown-linux-musleabi.tar.gz
         toolchain:
           - stable
 
