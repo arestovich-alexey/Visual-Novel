@@ -36,11 +36,11 @@ jobs:
             bin: ${{ github.event.repository.name }}
             name: ${{ github.event.repository.name }}-x86_64-unknown-linux-gnu.tar.gz
 
-          - os_name: Linux-aarch64
-            os: ubuntu-20.04
-            target: aarch64-unknown-linux-gnu
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-aarch64-unknown-linux-gnu.tar.gz
+#           - os_name: Linux-aarch64
+#             os: ubuntu-20.04
+#             target: aarch64-unknown-linux-gnu
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-aarch64-unknown-linux-gnu.tar.gz
             
 #           - os_name: Linux-arm-musleabi
 #             os: ubuntu-20.04
@@ -48,11 +48,11 @@ jobs:
 #             bin: ${{ github.event.repository.name }}
 #             name: ${{ github.event.repository.name }}-arm-unknown-linux-musleabi.tar.gz
           
-          - os_name: Linux-arm-gnueabihf
-            os: ubuntu-20.04
-            target: arm-unknown-linux-gnueabihf
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-arm-unknown-linux-gnueabihf.tar.gz
+#           - os_name: Linux-arm-gnueabihf
+#             os: ubuntu-20.04
+#             target: arm-unknown-linux-gnueabihf
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-arm-unknown-linux-gnueabihf.tar.gz
 
 #           - os_name: armv7-unknown-linux-gnueabi
 #             os: ubuntu-20.04
@@ -165,7 +165,7 @@ jobs:
         if: contains(matrix.platform.name, 'musl')
         
       - name: Install libasound2-dev on Linux
-        run: sudo apt-get update --yes && sudo apt-get install --yes libasound2-dev
+        run: sudo apt-get update --yes && sudo apt-get install --yes g++ pkg-config libx11-dev libasound2-dev libudev-dev
         if: contains(matrix.platform.name, 'linux')
 
       - name: Install libunwind8-dev for Android
