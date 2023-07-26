@@ -66,12 +66,12 @@ jobs:
 #             bin: ${{ github.event.repository.name }}
 #             name: ${{ github.event.repository.name }}-armv7-unknown-linux-musleabi.tar.gz
             
-          - os_name: Linux-i686-musl
-            os: ubuntu-20.04
-            target: i686-unknown-linux-musl
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-i686-unknown-linux-musl.tar.gz
-            skip_tests: true
+#           - os_name: Linux-i686-musl
+#             os: ubuntu-20.04
+#             target: i686-unknown-linux-musl
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-i686-unknown-linux-musl.tar.gz
+#             skip_tests: true
           
 #           - os_name: Linux-riscv64
 #             os: ubuntu-20.04
