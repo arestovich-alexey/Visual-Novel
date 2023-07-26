@@ -233,13 +233,14 @@ jobs:
             bin: ${{ github.event.repository.name }}
             name: ${{ github.event.repository.name }}-macOS-aarch64-apple-darwin.tar.gz
             skip_tests: true
-            
-          - os_name: IOS-aarch64
-            os: macos-12
-            target: aarch64-apple-ios
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-Apple-aarch64-apple-ios.tar.gz
-            skip_tests: true
+
+# cannot find value `kAudioDevicePropertyBufferFrameSize` in crate `sys`
+#           - os_name: IOS-aarch64
+#             os: macos-12
+#             target: aarch64-apple-ios
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-Apple-aarch64-apple-ios.tar.gz
+#             skip_tests: true
 
           - os_name: aarch64-linux-android
             os: ubuntu-22.04
@@ -368,11 +369,13 @@ jobs:
             bin: ${{ github.event.repository.name }}
             name: ${{ github.event.repository.name }}-arm-unknown-linux-gnueabihf.tar.gz
 
-          - os_name: armv7-unknown-linux-gnueabi
-            os: ubuntu-20.04
-            target: armv7-unknown-linux-gnueabi
-            bin: ${{ github.event.repository.name }}
-            name: ${{ github.event.repository.name }}-armv7-unknown-linux-gnueabi.tar.gz
+# [WTF?] 
+# Package alsa was not found in the pkg-config search path.\nPerhaps you should add the directory containing `alsa.pc'\nto the PKG_CONFIG_PATH environment variable\nNo package 'alsa' found
+#           - os_name: armv7-unknown-linux-gnueabi
+#             os: ubuntu-20.04
+#             target: armv7-unknown-linux-gnueabi
+#             bin: ${{ github.event.repository.name }}
+#             name: ${{ github.event.repository.name }}-armv7-unknown-linux-gnueabi.tar.gz
 
           - os_name: Linux-armv7-musleabi
             os: ubuntu-20.04
